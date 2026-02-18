@@ -11,7 +11,7 @@ A responsive, mobile-first TV show dashboard built with **Vue 3 (Composition API
 
 ## Live demo
 
-- **Deployed app:** _<add your Vercel URL here>_
+- **Deployed app:** https://tv-series-dashboard.vercel.app/
 
 ---
 
