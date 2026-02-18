@@ -3,7 +3,7 @@ import { defineComponent, nextTick } from 'vue'
 
 import { mount } from '@vue/test-utils'
 import { useShowBrowser } from '@/composables/useShowBrowser'
-import type { SearchResult, Show } from '@/types'
+import type { SearchResult } from '@/types'
 import { makeShow } from '@/__data__/show'
 
 vi.mock('@/services/ShowService', () => ({

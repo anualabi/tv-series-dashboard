@@ -9,7 +9,7 @@ export function toUserMessage(
     // Request cancelled
     if (error.code === 'ERR_CANCELED') return 'Request cancelled.'
 
-    // If server returned something useful (rare with TVMaze, but safe)
+    // If server returned something useful
     const status = error.response?.status
     if (status === 404) return 'Not found.'
     if (status && status >= 500) return 'Server error. Please try again.'

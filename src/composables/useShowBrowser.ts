@@ -160,7 +160,7 @@ export function useShowBrowser(options: UseShowBrowserOptions = {}) {
 
     // actions
     clearSearch,
-    loadInitial, // exposed for tests
-    runSearch, // exposed for tests
+    loadInitial,
+    runSearch,
   }
 }
