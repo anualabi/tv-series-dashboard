@@ -19,32 +19,50 @@ watch(imgSrc, () => {
 </script>
 
 <template>
-  <article class="show-card">
-    <div class="thumb">
-      <img
-        v-if="imgSrc && !imgError"
-        :src="imgSrc"
-        :alt="`${show.name} poster`"
-        loading="lazy"
-        decoding="async"
-        @error="imgError = true"
-      />
-      <div v-else class="thumb-fallback" aria-hidden="true">No image</div>
-    </div>
-
-    <div class="meta">
-      <div class="top">
-        <span class="type">{{ show.type }}</span>
-        <span class="rating" :aria-label="rating == null ? 'No rating' : `Rating ${ratingText}`">
-          ★ {{ ratingText }}
-        </span>
+  <RouterLink
+    class="show-link"
+    :to="{ name: 'show-details', params: { id: show.id } }"
+    :aria-label="`View details for ${show.name}`"
+  >
+    <article class="show-card">
+      <div class="thumb">
+        <img
+          v-if="imgSrc && !imgError"
+          :src="imgSrc"
+          :alt="`${show.name} poster`"
+          loading="lazy"
+          decoding="async"
+          @error="imgError = true"
+        />
+        <div v-else class="thumb-fallback" aria-hidden="true">No image</div>
       </div>
-      <p class="name">{{ show.name }}</p>
-    </div>
-  </article>
+
+      <div class="meta">
+        <div class="top">
+          <span class="type">{{ show.type }}</span>
+          <span class="rating" :aria-label="rating == null ? 'No rating' : `Rating ${ratingText}`">
+            ★ {{ ratingText }}
+          </span>
+        </div>
+        <p class="name">{{ show.name }}</p>
+      </div>
+    </article>
+  </RouterLink>
 </template>
 
 <style scoped>
+.show-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  outline: none;
+}
+
+.show-link:focus-visible .show-card {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
 .show-card {
   width: clamp(132px, 40vw, 180px);
   flex: 0 0 auto;

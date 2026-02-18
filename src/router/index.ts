@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
+import ShowDetailsView from '@/views/ShowDetailsView.vue'
 import ShowListView from '@/views/ShowListView.vue'
 
 const router = createRouter({
@@ -8,6 +10,12 @@ const router = createRouter({
       path: '/',
       name: 'show-list',
       component: ShowListView,
+    },
+    {
+      path: '/shows/:id',
+      name: 'show-details',
+      component: ShowDetailsView,
+      props: true,
     },
   ],
 })

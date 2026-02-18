@@ -13,6 +13,15 @@ const mountCard = (show: Show) =>
   })
 
 describe('ShowCard', () => {
+  test('links to details route and sets accessible label', () => {
+    const show = makeShow({ id: 42, name: 'Planet Earth' })
+    const wrapper = mountCard(show)
+
+    const link = wrapper.getComponent(RouterLinkStub)
+    expect(link.props('to')).toEqual({ name: 'show-details', params: { id: 42 } })
+    expect(link.attributes('aria-label')).toBe('View details for Planet Earth')
+  })
+
   test('renders type, name and formatted rating (with aria)', () => {
     const wrapper = mountCard(
       makeShow({ type: 'Reality', name: 'Top Gear', rating: { average: 7.997 } }),
