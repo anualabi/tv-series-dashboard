@@ -1,0 +1,21 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+.app-link {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.2s;
+}
+
+@media (hover: hover) {
+  .app-link:hover {
+    text-decoration: underline;
+  }
+}
