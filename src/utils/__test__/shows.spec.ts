@@ -1,28 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
 import { groupShowsByGenre, ratingValue } from '@/utils/shows'
-import type { Show } from '@/types'
-
-const makeShow = (overrides: Partial<Show> = {}): Show => ({
-  id: 1,
-  name: 'Show',
-  url: 'https://example.com',
-  type: 'Scripted',
-  language: 'English',
-  genres: [],
-  status: 'Running',
-  runtime: null,
-  averageRuntime: null,
-  premiered: null,
-  ended: null,
-  officialSite: null,
-  schedule: { time: '', days: [] },
-  network: null,
-  rating: { average: null },
-  image: null,
-  summary: null,
-  ...overrides,
-})
+import { makeShow } from '@/__data__/show'
 
 describe('utils/shows', () => {
   test('ratingValue returns average or 0', () => {
